@@ -1,0 +1,40 @@
+<!--recommend.wxml-->
+<view class="container" >
+       <block wx:for="{{menuInfo.list}}">
+          <view class="items"  bindtap="bindHref" data-lids="{{item.lid}}">
+                <view class="mainsell" >
+                    <view class="left">
+                        <image src="https://cdnrs.xianlaohu.com{{item.cover_img}}" class="imgs"  mode="aspectFill"></image>
+                        <image src="../../image/best.png" class="tags" wx:if="{{menuType == 2 && index == 0}}"></image> 
+                        <image src="../../image/1.png" class="tag1" wx:if="{{menuType == 1 && index == 0}}"></image>
+                        <image src="../../image/2.png" class="tag1" wx:if="{{menuType == 1 && index == 1}}"></image>
+                        <image src="../../image/3.png" class="tag1" wx:if="{{menuType == 1 && index == 2}}"></image>
+                    </view>
+                    <view class="center">
+                        <view class="title">{{item.title}}</view>
+                        <view class="cons">{{item.description}}</view>
+                    </view>
+                    <view class="right">
+                        <view class="yhprice" wx:if="{{item.discount_price}}">
+                          <text class="price0">优惠价:</text>
+                          <text class="price1">¥{{item.discount_price/100}}</text>
+                        </view>
+                        <view class="yhprice" wx:else>
+                          <text class="price1">¥{{item.price/100}}</text>
+                        </view>                             
+                        <view class="yjprice" style="text-decoration:line-through;color:#f00;"  wx:if="{{item.discount_price}}">
+                            <text class="price3">原价:</text>
+                            <text class="price4">¥{{item.price/100}}</text>
+                        </view>                    
+                        <view class="eat" wx:if="{{ item.like_eating_count}}">有{{item.like_eating_count}}人想吃</view>  
+                    </view>
+                </view>
+                <view class="empty"></view>
+          </view>
+       </block>               
+</view>            
+ 
+           
+ 
+
+

@@ -1,0 +1,49 @@
+/* home.wxss */
+.banner{
+  width: 100%;
+  height: 460rpx;
+}
+.banner image{
+ width: 100%;
+ height: 100%;
+}
+.content{
+  width:83%;
+  height:auto;
+  margin: 0 auto;
+}
+.contBox{
+  width:100%;
+  height:auto;
+  margin: 0 auto;
+}
+.content > text{
+  display: block;
+ width:100%;
+ height:100rpx;
+ line-height: 120rpx;
+ font-family:PingFangSC-Medium;
+ font-size:36rpx; 
+ color:#4a4a4a;
+}
+.box {
+  word-wrap:break-word
+}
+.contBox image{
+  width:8rpx;
+  height:8rpx;
+  float:left;
+  margin-right:20rpx;
+  margin-top:18rpx;
+  display: block;
+}
+.contBox text{
+ width: 94%;
+  height: auto;
+  float:left;
+  font-family:PingFangSC-Regular;
+  font-size:24rpx;
+  line-height: 40rpx;
+  color:#666666;
+  display: block;
+}

@@ -1,0 +1,94 @@
+<!--index.wxml-->
+<view class="contain">
+    <navigator url="../recommend/recommend?menu_type=2" class="mainban" >
+      <image  src="../../image/banner.png" background-size="cover" wx:if="{{!mediaInfo.banner_url}}"></image>
+       <image  src="https://cdnrs.xianlaohu.com{{mediaInfo.banner_url}}" background-size="cover"></image> 
+    </navigator >
+    <view class="flex-row" wx:if="{{stateInfo.has_open_card == 1}}">
+      <navigator class="flex-item" url="../home/home">
+              <view class="flex-image"><image  src="../../image/activity.png" ></image></view>
+              <view class="word"><a  bindtap="bindViewTap" >餐厅活动</a></view>
+      </navigator>
+      <navigator class="flex-item" url="../recommend/recommend?menu_type=1">
+             <view wx:if="{{ stateInfo.has_recommend == 1}}" class="flex-image" class="hotimg">
+                     <image  src="/image/recmd.png" ></image>
+                     <image  class="hotdot" src="../../image/hot.png"></image>
+              </view>
+              <view wx:else> <image class="" src="/image/recmd.png" ></image> </view>
+              <view class="word"><a  bindtap="bindViewTap" >菜品排行榜</a></view>
+      </navigator>
+      <navigator class="flex-item" url="../recommend/recommend?menu_type=2">
+              <view class="flex-image"><image  src="../../image/disc.png" ></image></view>
+              <view class="word">
+                  <a  abindtap="bindViewTap" >菜品折扣</a>
+                  <view wx:if="{{stateInfo.has_recommend == 1}}" class="lowprice" bindtap="bindViewTap" >{{stateInfo.mix_discount_val/100}}元起</view>
+                  <view wx:else style="display:none" class="lowprice" bindtap="bindViewTap" >{{stateInfo.mix_discount_val}}元起</view>
+              </view>
+      </navigator> 
+      <navigator class="flex-item" url="../coupon/coupon">
+              <view class="flex-image"><image  src="../../image/cart.png" ></image></view>
+              <view class="word"><a  bindtap="bindViewTap" >卡券</a></view>
+      </navigator>
+    </view>
+    <view class="flex-row" wx:else>
+      <navigator class="flex-item" url="../home/home" style="width:33%;">
+              <view class="flex-image"><image  src="../../image/activity.png" ></image></view>
+              <view class="word"><a  bindtap="bindViewTap" >餐厅活动</a></view>
+      </navigator>
+      <navigator class="flex-item" url="../recommend/recommend?menu_type=1" style="width:33%;">
+             <view wx:if="{{ stateInfo.has_recommend == 1}}" class="flex-image" class="hotimg">
+                     <image  src="/image/recmd.png" ></image>
+                     <image  class="hotdot" src="../../image/hot.png" style="position: absolute;top: -14rpx;right: 50rpx;"></image>
+              </view>
+              <view wx:else> <image class="" src="/image/recmd.png" ></image> </view>
+              <view class="word"><a  bindtap="bindViewTap" >菜品排行榜</a></view>
+      </navigator>
+      <navigator class="flex-item" url="../recommend/recommend?menu_type=2" style="width:33%;">
+              <view class="flex-image"><image  src="../../image/disc.png" ></image></view>
+              <view class="word">
+                  <a  abindtap="bindViewTap" >菜品折扣</a>
+                  <view wx:if="{{stateInfo.has_recommend == 1}}" class="lowprice" bindtap="bindViewTap" >{{stateInfo.mix_discount_val/100}}元起</view>
+                  <view wx:else style="display:none" class="lowprice" bindtap="bindViewTap" >{{stateInfo.mix_discount_val}}元起</view>
+              </view>
+      </navigator>
+    </view>    
+    <view class="remd">
+        <view class="remdban" style="margin-borttom:30rpx">
+           <image class='line1' src="../../image/lineleft.png"></image>
+           <view class="tuijian" ><a class="tuijian">今日主打菜</a></view>
+           <image class='line2' src="../../image/lineright.png"></image>
+        </view> 
+    
+         <block wx:for="{{ menuInfo.list}}" wx:key="item"> 
+            <view class="mainsell" data-lid="{{item.lid}}" bindtap="bindHrefitem" > 
+                <view class="left">
+                    <image src="https://cdnrs.xianlaohu.com{{item.cover_img}}" mode="aspectFill"></image>
+                </view>
+                <view class="center">
+                    <view class="title">{{item.title}}</view>
+                    <view class="cons">{{item.description}}</view>
+                </view>
+                <view class="right">
+                    <view class="yhprice" wx:if="{{item.discount_price}}">
+                      <text class="price0">优惠价:</text>
+                      <text class="price1">¥{{item.discount_price/100}}</text>
+                    </view>
+                    <view class="yhprice" wx:else>
+                      <text class="price1">¥{{item.price/100}}</text>
+                    </view>                    
+                    <view class="yjprice" style="text-decoration:line-through;color:#f00;" wx:if="{{item.discount_price}}">
+                        <text class="price3">原价:</text>
+                        <text class="price4">¥{{item.price/100}}</text>
+                    </view>
+                    <!-- <view class="yjprice" wx:else>
+                        <text class="price4">¥{{item.price/100}}</text>
+                    </view>                     -->
+                    <view class="eat" wx:if="{{item.like_eating_count}}">
+                       <text>有{{item.like_eating_count}}人想吃</text>
+                    </view>
+                </view>
+            </view>
+            <view class="empty"></view>
+          </block>  
+    </view>
+</view>

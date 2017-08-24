@@ -1,0 +1,65 @@
+<!--coupon.wxml-->
+<view class="container">
+  <view class="ownCard">
+      <view class='headtitle'>
+          <view class='headtitlemoreicon'>本店优惠</view>
+      </view> 
+      <block wx:for="{{ownCardInfo.list}}" wx:for-item="item"  >
+        <view class="content">
+            <view class="bgd">
+              <image src="../../image/bgd.png" class="imgs"></image> 
+               <view class="top">
+                <view class="item_left">
+                    <image class="size" src="{{item.logo_url}}}"></image>
+                </view>
+                 <view class="item_right"> 
+                    <view class="leftside">
+                         <view class="one">{{item.brand_name}}</view>
+                         <view class="two">
+                             <view class="titles">{{item.title}}</view>
+                         </view>      
+                    </view>
+                    <view class="rightside">
+                          <view class="sideone" class="find" bindtap="bindClick" data-cardid="{{item.card_id}}" data-cardext="{{item.card_ext}}">领取</view>
+                          <view class="sidetwo" class="finded">还有{{item.sku}}张未领取 </view>
+                    </view>
+                </view>
+               </view>
+               <view class="bottom"> 有效期：{{item.use_date}}</view> 
+            </view>
+        </view>
+       </block>
+  </view>
+   <view class="ownCard">
+         <view class='headtitle'>
+          <view class='headtitlemoreicon'>周边优惠</view>
+        </view>
+        <block wx:for="{{zbCardInfo.list}}" wx:for-item="item"  >
+            <view class="content">
+                <view class="bgd">
+                <image src="../../image/bgd.png" class="imgs"></image> 
+                <view class="top">
+                    <view class="item_left">
+                        <image class="size" src="{{item.logo_url}}}"></image>
+                    </view>
+                    <view class="item_right"> 
+                        <view class="leftside">
+                            <view class="one">{{item.brand_name}}</view>
+                            <view class="two">
+                                <view class="titles">{{item.title}}</view>
+                            </view>      
+                        </view>
+                        <view class="rightside">
+                             <view class="sideone" class="find" bindtap="bindClick" data-cardid="{{item.card_id}}" data-cardext="{{item.card_ext}}">领取</view>
+                             <view class="sidetwo" class="finded">还有{{item.sku}}张未领取 </view>
+                        </view>
+                    </view>
+                  </view>
+                  <view class="bottom">
+                          <text>有效期：{{item.use_date}}</text>
+                  </view>
+                </view>
+            </view>
+        </block>
+  </view> 
+</view>

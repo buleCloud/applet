@@ -1,0 +1,41 @@
+<!--menu.wxml-->
+<view class="contain">
+    <view  bindtap="bindViewTap" class="bannerimg">
+        <image  src="../../image/xqban.png"  wx:if="{{!menuInfo.cover_img}}" background-size="cover"></image>
+        <image  src="https://cdnrs.xianlaohu.com{{menuInfo.cover_img}}" background-size="cover"></image>
+    </view>
+    <view class="main">
+        <view class="title">
+              <view class="brand"><a>{{ menuInfo.title}}</a></view>
+              <view class="yhprice" wx:if="{{menuInfo.discount_price}}">
+                  <text class="price0">优惠价:</text>
+                  <text class="price1">¥{{menuInfo.discount_price/100}}</text>
+              </view>     
+              <view class="yhprice" wx:else>
+                  <text class="price1">¥{{menuInfo.price/100}}</text>
+              </view>                         
+        </view>
+        <view class="yjprice" style="text-decoration:line-through; color:#da3f25;"  wx:if="{{menuInfo.discount_price}}">
+            <text class="price3">原价:</text>
+            <text class="price4">¥{{menuInfo.price/100}}</text>
+        </view>     
+        <view class="con">
+            <image class="dot2" src="../../image/dot.png"></image>
+            <view class="article-box"><text class="article">{{menuInfo.description}}</text></view>
+        </view>
+        <view class="yhtitle" wx:if="{{menuInfo.privilege}}"><a>优惠说明</a></view>
+        <view class="description" wx:if="{{menuInfo.privilege}}">
+            <image class="dot2" src="../../image/dot.png"></image>
+            <view class="article-box"><text class="article">{{menuInfo.privilege}}</text></view>
+        </view>
+    </view>
+  </view>
+  <view class="bottom">
+      <view class="botBox">
+        <image src="/image/star1.png" bindtap="addWantEatNumber" wx:if="{{!isDefault}}"></image>
+        <image src="/image/star2.png" wx:else></image>
+        <view class="number" wx:if="{{numbers != 0}}">{{numbers}}</view>       
+      </view>
+      <view class="wanteat"><text>想吃</text></view>
+  </view>
+

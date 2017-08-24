@@ -1,0 +1,13 @@
+<view class="contain">
+    <view  bindtap="bindViewTap" class="banner" >
+         <image  src="../../image/xqban.png"  wx:if="{{! homeInfo.cover_img}}" background-size="cover"></image>
+         <image  src="https://cdnrs.xianlaohu.com{{ homeInfo.cover_img}}" background-size="cover"></image>
+    </view>
+    <view class="content">
+          <text>活动说明</text>
+          <view class="contBox">
+            <image src="../../image/dot.png"></image>
+            <view class="box"><text>{{homeInfo.description}}</text></view>
+          </view>      
+    </view>
+</view>  

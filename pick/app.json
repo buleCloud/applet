@@ -1,0 +1,17 @@
+{
+  "pages": [
+     "pages/index/index",
+    "pages/discount/discount",
+    "pages/home/home",
+    "pages/recommend/recommend",
+    "pages/coupon/coupon"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "#fff"
+  }
+ 
+  
+}
